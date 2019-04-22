@@ -1,0 +1,61 @@
+###
+GET http://localhost:8080/user/list
+Content-Type: application/json
+
+###
+POST http://localhost:8080/user/add
+Content-Type: application/json
+
+{
+  "account" : "jkm4076",
+  "password" : "jkm40760",
+  "name" : "GwangMin",
+  "email" : "jkm4076@naver.com",
+  "phone" : "01094224076",
+  "profilePath" : "z"
+}
+
+###
+PUT http://localhost:8080/user/update/1
+Content-Type: application/json
+
+{
+  "account" : "jkm4076",
+  "password" : "gwangmin68@",
+  "name" : "GwangJin",
+  "email" : "jgm4076@naver.com",
+  "phone" : "01050514076",
+  "profilePath" : "abcd"
+}
+
+###
+DELETE http://localhost:8080/user/delete/1
+
+###
+GET http://localhost:8080/post/list
+Content-Type: application/json
+
+###
+POST http://localhost:8080/post/add
+Content-Type: application/json
+
+{
+  "userId" : "1",
+  "content" : "abcd",
+  "imgPath" : "abcd"
+}
+
+###
+PUT http://localhost:8080/post/update/1
+Content-Type: application/json
+
+{
+  "userId" : "1",
+  "content" : "bcde",
+  "imgPath" : "bcde"
+}
+
+###
+DELETE http://localhost:8080/post/delete/1
+
+###
