@@ -40,10 +40,10 @@ POST http://localhost:8080/post/add
 Content-Type: application/json
 
 {
-  "userId" : "1",
+  "userId" : "2",
   "title" :  "abcd",
   "content" : "abcd",
-  "pictures" : ""
+  "pictures" : null
 }
 
 ###
@@ -54,7 +54,7 @@ Content-Type: application/json
   "userId" : "1",
   "title" : "bcde",
   "content" : "bcde",
-  "pictures" : ""
+  "pictures" : null
 }
 
 ###

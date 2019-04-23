@@ -6,7 +6,17 @@ import lombok.Data;
 public class ResponseFormat {
     private int code;
     private String desc;
-    private Object data;
+    private Object data = null;
+
+
+    public ResponseFormat(ResponseType rt){
+        this.code = rt.getCode();
+        this.desc = rt.getDesc();
+    }
+
+    public ResponseFormat(ResponseType rt, Object data){
+        this(rt, data, null);
+    }
 
     public ResponseFormat(ResponseType rt, Object data,Object option){
         this.code = rt.getCode();
@@ -14,9 +24,5 @@ public class ResponseFormat {
                     ? String.format(rt.getDesc(), option)
                     : rt.getDesc();
         this.data = data;
-    }
-
-    public ResponseFormat(ResponseType rt, Object data){
-        this(rt, data, null);
     }
 }
