@@ -20,7 +20,8 @@ public class UserController {
 
     @GetMapping("/user/view/{id}")
     public ResponseFormat userView(@PathVariable Long id){
-        return new ResponseFormat(ResponseType.USER_GET, userService.view(id));
+        User data = userService.view(id);
+        return new ResponseFormat(ResponseType.USER_GET, data, data.getName());
     }
 
     @PostMapping("/user/add")
@@ -30,7 +31,8 @@ public class UserController {
 
     @PutMapping("/user/update/{id}")
     public ResponseFormat userUpdate(@PathVariable Long id, @RequestBody User user){
-        return new ResponseFormat(ResponseType.USER_UPDATE, userService.update(id, user));
+        User data = this.userService.update(id, user);
+        return new ResponseFormat(ResponseType.USER_UPDATE, data, data.getId());
     }
 
     @DeleteMapping("/user/delete/{id}")
