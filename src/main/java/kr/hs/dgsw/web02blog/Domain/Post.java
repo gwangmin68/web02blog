@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,28 +23,34 @@ public class Post {
     private Long userId;
 
     @Column(nullable = false)
+    private String title;
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
-    private String imgPath = null;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Attachment> pictures;
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
-    @JsonFormat(pattern = "yyyy-dd-MM HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime created;
     @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime modified;
 
-    public Post(Long userId, String content, String imgPath){
+    public Post(Long userId, String title, String content, List<Attachment> pictures){
         this.userId = userId;
+        this.title = title;
         this.content = content;
-        this.imgPath = imgPath;
+        this.pictures = pictures;
     }
 
     public Post(Post post){
         this.id = post.id;
         this.userId = post.userId;
+        this.title = post.title;
         this.content = post.content;
-        this.imgPath = post.imgPath;
+        this.pictures = post.pictures;
         this.created = post.created;
         this.modified = post.modified;
     }

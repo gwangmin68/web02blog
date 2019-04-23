@@ -54,7 +54,7 @@ public class User {
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)//수정 불가능
-    @JsonFormat(pattern = "yyyy-dd-MM HH:mm:ss")//생성일 형식
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")//생성일 형식
     private LocalDateTime created;
     @UpdateTimestamp
     @Column(nullable = false)

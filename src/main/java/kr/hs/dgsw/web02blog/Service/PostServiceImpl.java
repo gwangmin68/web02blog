@@ -47,14 +47,21 @@ public class PostServiceImpl implements PostService {
         return new PostUserNameProtocol(this.userRepository.findById(post.getUserId())
                 .map(name -> name.getName())
                 .orElse(null), this.postRepository.save(post));
+//        return new PostUserNameProtocol(this.userRepository.findById(post.getUserId()).get().getName(), this.postRepository.save(post));
+    }
+
+    @Override
+    public Post get(Long userId) {
+        return this.postRepository.findTopByUserIdOrderByIdDesc(userId).orElse(null);
     }
 
     @Override
     public Post update(Long id, Post post) {
         return this.postRepository.findById(id)
                 .map(found -> {
+                    found.setTitle(Optional.ofNullable(post.getTitle()).orElse(found.getTitle()));
                     found.setContent(Optional.ofNullable(post.getContent()).orElse(found.getContent()));
-                    found.setImgPath(Optional.ofNullable(post.getImgPath()).orElse(found.getImgPath()));
+                    found.setPictures(Optional.ofNullable(post.getPictures()).orElse(found.getPictures()));
                     return this.postRepository.save(found);
                 })
                 .orElse(null);

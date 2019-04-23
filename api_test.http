@@ -41,8 +41,9 @@ Content-Type: application/json
 
 {
   "userId" : "1",
+  "title" :  "abcd",
   "content" : "abcd",
-  "imgPath" : "abcd"
+  "pictures" : ""
 }
 
 ###
@@ -51,8 +52,9 @@ Content-Type: application/json
 
 {
   "userId" : "1",
+  "title" : "bcde",
   "content" : "bcde",
-  "imgPath" : "bcde"
+  "pictures" : ""
 }
 
 ###

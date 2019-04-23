@@ -55,9 +55,10 @@ public class UserServiceImpl implements UserService {
         try{
             this.userRepository.deleteById(id);
             List<Post> posts = this.postRepository.findAllByUserId(id);
-            for (Post post : posts) {
-                this.postRepository.delete(post);
-            }
+            this.postRepository.deleteInBatch(posts);
+//            for (Post post : posts) {
+//                this.postRepository.delete(post);
+//            }
             return true;
         }catch (Exception e){
             return false;

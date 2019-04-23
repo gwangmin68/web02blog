@@ -11,4 +11,5 @@ public interface PostService {
     PostUserNameProtocol add(Post post);
     Post update(Long id, Post post);
     boolean delete(Long id);
+    Post get(Long userId);
 }
