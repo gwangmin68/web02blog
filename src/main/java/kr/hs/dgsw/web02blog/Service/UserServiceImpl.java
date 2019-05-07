@@ -7,6 +7,7 @@ import kr.hs.dgsw.web02blog.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PostRepository postRepository;
+
 
     @Override
     public List<User> list() {

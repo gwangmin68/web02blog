@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB 3-2 15 Blog</title>
+</head>
+<body>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <header class="container">DGSW블로그</header>
+
+    <aside class="container aside_left">
+        <button id="btn-new" onclick="openPostDialog()"><h2>새 글 쓰기</h2></button>
+        <div id="recent-post">
+            <div>최근 글</div>
+            <ul id="post-list">
+                <li>zzz</li>
+            </ul>
+        </div>
+    </aside>
+
+    <aside class="container aside_right">
+        <div id="user-img">사용자 프로필 이미지</div>
+        <div id="user-account">사용자 아이디</div>
+        <div id="user-name">사용자 이름</div>
+        <div id="user-join">가입일</div>
+        <div id="post-num">게시물 수</div>
+    </aside>
+    <section id="main-container" class="container">
+        <h2 id="post-title">게시글 제목</h2>
+        <div id="post-info">
+            <div id="post-user-name" style="width: 49%">작성자 이름</div>
+            <div id="post-date"style="width: 49%">작성 날짜</div>
+        </div>
+        <div id="post-content">게시글 내용</div>
+        <div id="post-btn">
+            <button id="prev">◀이전 글</button>
+            <button id="edit">수정</button>
+            <button id="remove">삭제</button>
+            <button id="next">다음 글▶</button>
+        </div>
+    </section>
+    <div id="container" style="display: none">
+        <div id="login-container">
+            <div class="login-dialog">
+                <div style="margin: 30px 0 30px 0">포스트 추가</div>
+                <div><input id="add-post-title" placeholder="제목" style="width: 300px"></div>
+                <div><textarea id="add-post-content" placeholder="내용" style="resize: none;" cols="50" rows="15"></textarea></div>
+                <div style="margin: 30px 0">
+                    <button onclick="addPost()">확인</button>
+                    <button onclick="closePostDialog()">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="container_edit" style="display: none">
+        <div id="edit-container">
+            <div class="login-dialog">
+                <div style="margin: 30px 0 30px 0">포스트 수정</div>
+                <div><input id="edit-post-title" placeholder="제목" style="width: 300px"></div>
+                <div><textarea id="edit-post-content" placeholder="내용" style="resize: none;" cols="50" rows="15"></textarea></div>
+                <div style="margin: 30px 0">
+                    <button id="edit_OK" onclick="postEdit()">확인</button>
+                    <button onclick="closeEditDialog()">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">Powered by DGSW</footer>
+    <script src="app.js"></script>
+</body>
+</html>

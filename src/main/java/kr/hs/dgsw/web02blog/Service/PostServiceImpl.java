@@ -8,6 +8,7 @@ import kr.hs.dgsw.web02blog.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,16 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     UserRepository userRepository;
+
+    @PostConstruct
+    public void init(){
+        this.userRepository.save(new User(
+                "1","1","gwangmin","gwangmin@naver","94224076",null
+        ));
+        this.postRepository.save(new Post(
+                1L,"test1","test",null
+        ));
+    }
 
     @Override
     public List<PostUserNameProtocol> list() {
